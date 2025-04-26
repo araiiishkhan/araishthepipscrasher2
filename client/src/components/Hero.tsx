@@ -11,23 +11,29 @@ export function Hero() {
         <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
           <div className="flex flex-col items-start text-left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8" style={{ lineHeight: "1.1", fontFamily: "'Poppins', sans-serif", letterSpacing: "-0.5px" }}>
-              <div className="mb-1">
+              <div>
                 <span style={{ 
-                  color: "#33B3E3", 
+                  color: "#4DB5E8", 
                   fontWeight: 800,
                   textShadow: "0 2px 0 rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.15), 0 0 5px rgba(51,179,227,0.5)" 
                 }}>Araish </span>
                 <span style={{ 
-                  color: "#9966FF", 
+                  color: "#B47CFF", 
                   fontWeight: 800,
                   textShadow: "0 2px 0 rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.15), 0 0 5px rgba(153,102,255,0.5)" 
-                }}>the Pips</span>
+                }}>the </span>
+                <span style={{ 
+                  color: "#B47CFF", 
+                  fontWeight: 800,
+                  textShadow: "0 2px 0 rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.15), 0 0 5px rgba(153,102,255,0.5)" 
+                }}>Pips</span>
               </div>
               <div style={{ 
-                color: "#33B3E3", 
+                color: "#4DB5E8", 
                 fontWeight: 800,
                 textShadow: "0 2px 0 rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.15), 0 0 5px rgba(51,179,227,0.5)",
-                paddingLeft: "2px"
+                paddingLeft: "2px",
+                marginTop: "-5px"
               }}>Crasher</div>
             </h1>
             
