@@ -21,20 +21,13 @@ export function Hero() {
                   color: "#B47CFF", 
                   fontWeight: 800,
                   textShadow: "0 2px 0 rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.15), 0 0 5px rgba(153,102,255,0.5)" 
-                }}>the </span>
+                }}>the Pips </span>
                 <span style={{ 
-                  color: "#B47CFF", 
+                  color: "#4DB5E8", 
                   fontWeight: 800,
-                  textShadow: "0 2px 0 rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.15), 0 0 5px rgba(153,102,255,0.5)" 
-                }}>Pips</span>
+                  textShadow: "0 2px 0 rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.15), 0 0 5px rgba(51,179,227,0.5)",
+                }}>Crasher</span>
               </div>
-              <div style={{ 
-                color: "#4DB5E8", 
-                fontWeight: 800,
-                textShadow: "0 2px 0 rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.15), 0 0 5px rgba(51,179,227,0.5)",
-                paddingLeft: "2px",
-                marginTop: "-5px"
-              }}>Crasher</div>
             </h1>
             
             <p className="text-lg md:text-xl mb-8 text-muted-foreground">
