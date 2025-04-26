@@ -10,12 +10,24 @@ export function Hero() {
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
           <div className="flex flex-col items-start text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ lineHeight: "1.2", fontFamily: "'Poppins', sans-serif" }}>
-              <div className="title-gradient text-white px-6 py-4 rounded-xl inline-block shadow-lg">
-                <span>Araish </span>
-                <span>the Pips</span>
-                <span> Crasher</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ lineHeight: "1.2", fontFamily: "'Poppins', sans-serif", letterSpacing: "-0.5px" }}>
+              <div>
+                <span style={{ 
+                  color: "#33B3E3", 
+                  fontWeight: 700,
+                  textShadow: "0 1px 0 rgba(255,255,255,0.4), 0 2px 0 rgba(0,0,0,0.1)" 
+                }}>Araish </span>
+                <span style={{ 
+                  color: "#9966FF", 
+                  fontWeight: 700,
+                  textShadow: "0 1px 0 rgba(255,255,255,0.4), 0 2px 0 rgba(0,0,0,0.1)" 
+                }}>the Pips</span>
               </div>
+              <div style={{ 
+                color: "#33B3E3", 
+                fontWeight: 700,
+                textShadow: "0 1px 0 rgba(255,255,255,0.4), 0 2px 0 rgba(0,0,0,0.1)" 
+              }}>Crasher</div>
             </h1>
             
             <p className="text-lg md:text-xl mb-8 text-muted-foreground">
