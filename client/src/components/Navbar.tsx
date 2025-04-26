@@ -27,9 +27,7 @@ export function Navbar() {
           <div>
             <Link href="/" className="flex flex-col">
               <span className="font-bold text-lg" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800 }}>
-                <span style={{ color: "#33B3E3" }}>Araish </span>
-                <span style={{ color: "#9966FF" }}>the Pips </span>
-                <span style={{ color: "#33B3E3" }}>Crasher</span>
+                <span style={{ color: "#000000" }}>Araish the Pips Crasher</span>
               </span>
             </Link>
           </div>
