@@ -19,10 +19,10 @@ import untitled from '@assets/Untitled.jpg';
 // Export images with descriptive names
 export const images = {
   // Product images
-  productBox: image10,
+  productBox: image20, // Use the new product box image
   presentation1: image18,
-  presentation2: image20,
-  presentation3: image22,
+  presentation2: image22,
+  presentation3: image23,
   // Results and performance
   tradingResults: image16,
   performance1: image23,

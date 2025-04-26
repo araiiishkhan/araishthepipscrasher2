@@ -1,0 +1,16 @@
+/* Floating animation for product box */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating-product {
+  animation: float 5s ease-in-out infinite;
+}

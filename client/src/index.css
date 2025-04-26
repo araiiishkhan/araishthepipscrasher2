@@ -5,50 +5,53 @@
 @layer base {
   :root {
     --background: 0 0% 100%;     /* #FFFFFF - White background */
-    --foreground: 262 78% 27%;   /* #42237E - Dark purple */
+    --foreground: 222 84% 4.9%;  /* Dark text */
     
     --muted: 0 0% 96%;           /* #F5F5F5 - Light gray */
-    --muted-foreground: 262 30% 50%; /* Muted purple */
+    --muted-foreground: 215 16% 47%; /* Muted text */
     
     --popover: 0 0% 100%;        /* White */
-    --popover-foreground: 262 78% 27%; /* Dark purple */
+    --popover-foreground: 222 84% 4.9%; /* Dark text */
     
     --card: 0 0% 98%;            /* #FAFAFA - Almost white */
-    --card-foreground: 262 78% 27%;
+    --card-foreground: 222 84% 4.9%;
     
-    --border: 270 50% 85%;       /* Light lavender border */
-    --input: 270 50% 85%;
+    --border: 214 32% 91%;       /* Light border */
+    --input: 214 32% 91%;
     
-    --primary: 289 78% 60%;      /* #C041DF - Pink/Purple */
+    /* Light blue from the logo */
+    --primary: 195 90% 60%;      /* #33B3E3 - Blue */
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 262 78% 60%;    /* #7E41DF - Purple */
+    /* Purple from the logo */
+    --secondary: 260 75% 65%;    /* #9966FF - Purple */
     --secondary-foreground: 0 0% 100%;
     
-    --accent: 316 78% 60%;       /* #DF41A0 - Pink */
+    /* Light purple from the logo */
+    --accent: 275 70% 70%;       /* #C77DFF - Light purple */
     --accent-foreground: 0 0% 100%;
     
     --destructive: 0 84% 60%;    /* #F6465D - Red */
     --destructive-foreground: 0 0% 100%;
     
-    --ring: 289 78% 60%;
+    --ring: 195 90% 60%;         /* Blue ring */
     
     --radius: 0.5rem;
     
-    --chart-1: 262 78% 60%;      /* Purple */
-    --chart-2: 289 78% 60%;      /* Pink/Purple */
-    --chart-3: 316 78% 60%;      /* Pink */
-    --chart-4: 211 100% 50%;     /* Blue */
+    --chart-1: 195 90% 60%;      /* Blue */
+    --chart-2: 260 75% 65%;      /* Purple */
+    --chart-3: 275 70% 70%;      /* Light purple */
+    --chart-4: 211 100% 50%;     /* Bright blue */
     --chart-5: 180 100% 50%;     /* Cyan */
     
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 262 78% 27%;
-    --sidebar-primary: 289 78% 60%;
+    --sidebar-foreground: 222 84% 4.9%;
+    --sidebar-primary: 195 90% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 98%;
-    --sidebar-accent-foreground: 262 78% 27%;
-    --sidebar-border: 270 50% 85%;
-    --sidebar-ring: 289 78% 60%;
+    --sidebar-accent-foreground: 222 84% 4.9%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 195 90% 60%;
   }
 }
 
@@ -73,17 +76,17 @@
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #C041DF, #DF41A0);
+  background: linear-gradient(135deg, #33B3E3, #9966FF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .brand-gradient {
-  background: linear-gradient(135deg, #42237E, #C041DF);
+  background: linear-gradient(135deg, #33B3E3, #9966FF);
 }
 
 .brand-button {
-  background: linear-gradient(135deg, #9340DC, #DF41A0);
+  background: linear-gradient(135deg, #33B3E3, #9966FF);
   transition: all 0.3s ease;
 }
 

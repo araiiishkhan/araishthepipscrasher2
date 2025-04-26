@@ -2,24 +2,28 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { images } from "@/assets/images";
 import { ChevronRight, Play } from "lucide-react";
+import "./hero-animations.css"; // We'll create this file next
 
 export function Hero() {
   return (
     <section className="py-12 md:py-24 px-6 md:px-10 bg-background">
       <div className="container mx-auto">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-          <div className="w-32 h-32 mb-8">
-            <img 
-              src={images.productBox} 
-              alt="Araish - The Pips Crasher" 
-              className="w-full h-full object-contain" 
-            />
+          <div className="w-48 h-48 mb-8 relative floating-product">
+            <div className="w-full h-full relative z-10">
+              <img 
+                src={images.productBox} 
+                alt="Araish - The Pips Crasher" 
+                className="w-full h-full object-contain shadow-xl" 
+              />
+            </div>
+            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-xl opacity-70 animate-pulse"></div>
           </div>
           
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-primary">Araish</span>{" "}
-            <span className="text-foreground">the Pips</span>{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Crasher</span>
+            <span className="text-primary">Araish</span>{" "}
+            <span className="text-secondary">the Pips</span>{" "}
+            <span className="text-primary">Crasher</span>
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 text-muted-foreground max-w-2xl">
@@ -50,7 +54,7 @@ export function Hero() {
           </div>
           
           <div className="mt-10 text-2xl font-bold">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">$1,199</span>
+            <span className="text-primary">$1,199</span>
             <span className="text-sm font-normal text-muted-foreground ml-2">USD/USDT</span>
           </div>
         </div>
