@@ -1,113 +1,79 @@
-import { useEffect, useRef } from "react";
-import { Card } from "@/components/ui/card";
+import { useEffect, useRef, useState } from "react";
 import { generateCandlestickData } from "@/lib/utils";
 
 export function TradingChart() {
   const chartContainerRef = useRef<HTMLDivElement>(null);
-
+  
+  // Simple static chart implementation instead of using lightweight-charts
   useEffect(() => {
-    if (!chartContainerRef.current) return;
-    
-    let chart: any = null;
-    
-    const initializeChart = async () => {
-      try {
-        const LightweightCharts = await import('lightweight-charts');
-        
-        // Clear previous chart if it exists
-        if (chartContainerRef.current) {
-          chartContainerRef.current.innerHTML = '';
-        }
-        
-        chart = LightweightCharts.createChart(chartContainerRef.current!, {
-          layout: {
-            background: { color: '#1E2026' },
-            textColor: '#d1d4dc',
-          },
-          grid: {
-            vertLines: { color: 'rgba(42, 46, 57, 0.5)' },
-            horzLines: { color: 'rgba(42, 46, 57, 0.5)' },
-          },
-          timeScale: {
-            timeVisible: true,
-            secondsVisible: false,
-          },
-          width: chartContainerRef.current!.clientWidth,
-          height: 300,
-        });
-        
-        const candlestickSeries = chart.addCandlestickSeries({
-          upColor: '#0ECB81',
-          downColor: '#F6465D',
-          borderVisible: false,
-          wickUpColor: '#0ECB81',
-          wickDownColor: '#F6465D',
-        });
-        
-        const data = generateCandlestickData(100);
-        candlestickSeries.setData(data);
-        
-        // Add volume series
-        const volumeSeries = chart.addHistogramSeries({
-          color: '#26a69a',
-          priceFormat: {
-            type: 'volume',
-          },
-          priceScaleId: '',
-          scaleMargins: {
-            top: 0.8,
-            bottom: 0,
-          },
-        });
-        
-        const volumeData = data.map(item => ({
-          time: item.time,
-          value: (Math.random() * 10 + 1) * 1000,
-          color: item.close >= item.open ? '#0ECB81' : '#F6465D'
-        }));
-        
-        volumeSeries.setData(volumeData);
-        
-        // Resize handler
-        const resizeObserver = new ResizeObserver(entries => {
-          if (entries.length === 0 || !entries[0].contentRect) return;
-          const { width, height } = entries[0].contentRect;
-          chart.applyOptions({ width, height: 300 });
-          chart.timeScale().fitContent();
-        });
-        
-        resizeObserver.observe(chartContainerRef.current!);
-        
-        return () => {
-          resizeObserver.disconnect();
-          chart.remove();
-        };
-      } catch (error) {
-        console.error("Error loading chart:", error);
-        if (chartContainerRef.current) {
-          // Fallback content if chart fails to load
-          chartContainerRef.current.innerHTML = `
-            <div class="flex items-center justify-center h-[300px] bg-secondary/30 rounded-lg">
-              <p class="text-muted-foreground">Chart loading failed. Please try again later.</p>
+    const drawChart = () => {
+      if (!chartContainerRef.current) return;
+      
+      // Create chart background
+      chartContainerRef.current.innerHTML = `
+        <div class="bg-gray-50 rounded-lg p-4 h-[300px] relative">
+          <div class="h-full w-full">
+            <div class="text-xs text-gray-500 absolute top-2 left-4">181.92</div>
+            <div class="text-xs text-gray-500 absolute bottom-2 left-4">181.54</div>
+            
+            <!-- Grid lines -->
+            <div class="border-t border-gray-200 absolute top-1/4 left-0 right-0"></div>
+            <div class="border-t border-gray-200 absolute top-2/4 left-0 right-0"></div>
+            <div class="border-t border-gray-200 absolute top-3/4 left-0 right-0"></div>
+            
+            <!-- Static chart data display -->
+            <div class="flex items-end justify-around h-3/4 absolute bottom-8 left-12 right-12">
+              ${Array(20).fill(0).map((_, i) => {
+                const height = 30 + Math.random() * 70;
+                const isUp = Math.random() > 0.4;
+                const color = isUp ? '#0ECB81' : '#F6465D';
+                return `
+                  <div class="relative w-4">
+                    <div class="absolute bottom-0 w-0.5 bg-${isUp ? 'green-500' : 'red-500'} mx-auto left-0 right-0" 
+                      style="height: ${Math.random() * 15 + 5}px; top: -${Math.random() * 5 + 2}px;"></div>
+                    <div class="bg-${isUp ? 'green-500' : 'red-500'} rounded-sm" 
+                      style="height: ${height}px; width: 6px;"></div>
+                    <div class="absolute bottom-0 w-0.5 bg-${isUp ? 'green-500' : 'red-500'} mx-auto left-0 right-0" 
+                      style="height: ${Math.random() * 10 + 5}px; bottom: -${Math.random() * 5 + 2}px;"></div>
+                  </div>
+                `;
+              }).join('')}
             </div>
-          `;
-        }
-      }
+            
+            <!-- Time labels -->
+            <div class="flex justify-between text-xs text-gray-500 absolute bottom-1 left-12 right-12">
+              <div>09:00</div>
+              <div>12:00</div>
+              <div>15:00</div>
+              <div>18:00</div>
+            </div>
+            
+            <!-- Current price indicator -->
+            <div class="absolute top-2 right-4 text-blue-500 font-bold text-sm">
+              GBP/JPY: 181.76
+            </div>
+          </div>
+        </div>
+      `;
     };
     
-    initializeChart();
+    drawChart();
     
+    // Cleanup function
     return () => {
-      if (chart) {
-        chart.remove();
+      if (chartContainerRef.current) {
+        chartContainerRef.current.innerHTML = '';
       }
     };
   }, []);
   
   return (
-    <div className="chart-container" ref={chartContainerRef}>
-      <div className="flex items-center justify-center h-full bg-secondary/30 rounded-lg">
-        <p className="text-muted-foreground">Loading Chart...</p>
+    <div ref={chartContainerRef} className="w-full">
+      <div className="flex items-center justify-center h-[300px] bg-secondary/10 rounded-lg">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-primary border-t-transparent mb-2"></div>
+          <p className="text-muted-foreground">Loading Chart...</p>
+        </div>
       </div>
     </div>
   );
