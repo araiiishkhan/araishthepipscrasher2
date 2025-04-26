@@ -20,7 +20,7 @@ export function Hero() {
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-xl opacity-70 animate-pulse"></div>
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.1)' }}>
             <span className="text-primary">Araish</span>{" "}
             <span className="text-secondary">the Pips</span>{" "}
             <span className="text-primary">Crasher</span>

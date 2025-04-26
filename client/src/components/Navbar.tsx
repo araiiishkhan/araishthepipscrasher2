@@ -26,7 +26,11 @@ export function Navbar() {
           </div>
           <div>
             <Link href="/" className="flex flex-col">
-              <span className="font-bold text-foreground">Araish the Pips Crasher</span>
+              <span className="font-bold" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.1)' }}>
+                <span className="text-primary">Araish</span>{" "}
+                <span className="text-secondary">the Pips</span>{" "}
+                <span className="text-primary">Crasher</span>
+              </span>
             </Link>
           </div>
         </div>

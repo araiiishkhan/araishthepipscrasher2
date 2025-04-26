@@ -63,7 +63,7 @@ export function BuyNow() {
                   </div>
                   
                   <div className="flex gap-2 items-center mb-4">
-                    <span className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-secondary to-primary">
+                    <span className="text-3xl font-bold text-primary" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.1)' }}>
                       ${productPrice}
                     </span>
                     <span className="text-sm">USDT</span>

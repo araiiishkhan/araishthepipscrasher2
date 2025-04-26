@@ -7,8 +7,8 @@ export function Features() {
     <section id="features" className="py-20 px-6 md:px-10 bg-muted/50">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">
-            About the <span className="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-primary">Strategy</span>
+          <h2 className="text-3xl font-bold mb-4" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.1)' }}>
+            About the <span className="text-secondary">Strategy</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             Advanced AI-powered trading system designed specifically for the GBP/JPY currency pair with proven results
