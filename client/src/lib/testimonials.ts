@@ -132,23 +132,23 @@ export const quickLinks = [
 export const supportLinks = [
   {
     id: 1,
-    name: "Help Center",
-    href: "#",
+    name: "Email Support",
+    href: "mailto:araiiishkhan@gmail.com",
   },
   {
     id: 2,
-    name: "Documentation",
-    href: "#",
+    name: "WhatsApp Support",
+    href: "https://wa.me/923005952613",
   },
   {
     id: 3,
-    name: "Contact Support",
-    href: "#",
+    name: "Call Us",
+    href: "tel:+923005952613",
   },
   {
     id: 4,
-    name: "Community",
-    href: "#",
+    name: "FAQ",
+    href: "#faq",
   },
 ];
 
