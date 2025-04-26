@@ -5,7 +5,7 @@ import { images } from "@/assets/images";
 
 export function ProductShowcase() {
   return (
-    <section id="pricing" className="py-16 px-6 md:px-10 gradient-bg">
+    <section id="pricing" className="py-16 px-6 md:px-10 bg-white">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>

@@ -3,7 +3,7 @@ import { currentYear, quickLinks, supportLinks, legalLinks } from "@/lib/testimo
 
 export function Footer() {
   return (
-    <footer className="bg-secondary py-10 px-6 md:px-10">
+    <footer className="bg-white py-10 px-6 md:px-10 border-t border-gray-100">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>

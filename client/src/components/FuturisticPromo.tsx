@@ -4,8 +4,8 @@ import { images } from "@/assets/images";
 
 export function FuturisticPromo() {
   return (
-    <section className="py-16 px-6 md:px-10 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-900 to-black opacity-80 bg-cover bg-center"></div>
+    <section className="py-16 px-6 md:px-10 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-white"></div>
       <div className="container mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
@@ -16,7 +16,7 @@ export function FuturisticPromo() {
               Araish isn't just a trading system. It's an AI-driven companion that evolves with the market to consistently crush pips.
             </p>
             <div className="space-y-4 mb-6">
-              <Card className="bg-secondary bg-opacity-50">
+              <Card className="bg-gray-50 shadow-sm">
                 <CardHeader className="p-4 pb-0">
                   <CardTitle className="text-lg text-primary">Neural Network Analysis</CardTitle>
                 </CardHeader>
@@ -26,7 +26,7 @@ export function FuturisticPromo() {
                   </p>
                 </CardContent>
               </Card>
-              <Card className="bg-secondary bg-opacity-50">
+              <Card className="bg-gray-50 shadow-sm">
                 <CardHeader className="p-4 pb-0">
                   <CardTitle className="text-lg text-primary">Adaptive Algorithms</CardTitle>
                 </CardHeader>
