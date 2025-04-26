@@ -18,7 +18,7 @@ export function PerformanceCard({ label, value, percentage }: PerformanceCardPro
       </div>
       <Progress 
         value={percentage} 
-        className="h-2" 
+        className="h-2 bg-secondary/30" 
         indicatorClassName={label === "Trading Weeks" ? "bg-primary" : "bg-[#0ECB81]"}
       />
     </Card>

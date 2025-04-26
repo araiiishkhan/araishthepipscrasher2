@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { images } from "@/assets/images";
 
 export function FuturisticPromo() {
   return (
     <section className="py-16 px-6 md:px-10 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop')] opacity-10 bg-cover bg-center"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-900 to-black opacity-80 bg-cover bg-center"></div>
       <div className="container mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
@@ -44,7 +45,7 @@ export function FuturisticPromo() {
           </div>
           <div className="flex justify-center">
             <img
-              src="https://i.imgur.com/ld4pXCa.jpg"
+              src={images.aiTrading}
               alt="Araish AI Trading"
               className="rounded-lg shadow-2xl"
             />

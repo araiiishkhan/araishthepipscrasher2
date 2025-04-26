@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { productBenefits, productPrice, originalPrice, discountPercentage } from "@/lib/cryptoData";
+import { images } from "@/assets/images";
 
 export function ProductShowcase() {
   return (
@@ -9,7 +10,7 @@ export function ProductShowcase() {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
             <img
-              src="https://i.imgur.com/9bjm9MJ.jpg"
+              src={images.productBox}
               alt="Araish Product Box"
               className="rounded-lg shadow-2xl w-3/4 mx-auto"
             />

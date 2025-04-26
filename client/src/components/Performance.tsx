@@ -4,6 +4,7 @@ import TestimonialCard from "./TestimonialCard";
 import PerformanceCard from "./PerformanceCard";
 import { testimonials, performanceMetrics } from "@/lib/testimonials";
 import { performanceMetrics as metrics } from "@/lib/cryptoData";
+import { images } from "@/assets/images";
 
 export function Performance() {
   return (
@@ -25,7 +26,11 @@ export function Performance() {
             </CardHeader>
             <CardContent>
               <div className="rounded-lg overflow-hidden mb-4">
-                <div className="w-full aspect-[16/9] bg-[url('https://i.imgur.com/E7y8apA.jpg')] bg-cover bg-center"></div>
+                <img 
+                  src={images.tradingResults} 
+                  alt="Trading Results Chart" 
+                  className="w-full aspect-[16/9] object-cover object-center"
+                />
               </div>
               <div className="grid grid-cols-3 gap-4 mb-4">
                 <div className="text-center">
@@ -65,21 +70,21 @@ export function Performance() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
           <div className="rounded-xl overflow-hidden">
             <img
-              src="https://i.imgur.com/XR2FHsM.jpg"
+              src={images.presentation1}
               alt="Araish presentation"
               className="w-full h-auto transform hover:scale-105 transition-transform duration-300"
             />
           </div>
           <div className="rounded-xl overflow-hidden">
             <img
-              src="https://i.imgur.com/9eHIBSF.jpg"
+              src={images.presentation2}
               alt="Araish presentation"
               className="w-full h-auto transform hover:scale-105 transition-transform duration-300"
             />
           </div>
           <div className="rounded-xl overflow-hidden">
             <img
-              src="https://i.imgur.com/qZDVFcN.jpg"
+              src={images.presentation3}
               alt="Araish presentation"
               className="w-full h-auto transform hover:scale-105 transition-transform duration-300"
             />
