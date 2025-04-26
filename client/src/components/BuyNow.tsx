@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check, Copy, CheckCircle, ArrowRight, Loader2, Download } from "lucide-react";
+import { Check, Copy, CheckCircle, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { copyToClipboard } from "@/lib/utils";
 import { paymentAddress, productPrice, originalPrice } from "@/lib/cryptoData";
 import { images } from "@/assets/images";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
 export function BuyNow() {
   const { toast } = useToast();
@@ -58,28 +56,29 @@ export function BuyNow() {
       return;
     }
     
-    setVerificationStatus("verifying");
-    
     // Simulate verification process
+    toast({
+      title: "Verifying...",
+      description: "Please wait while we verify your transaction.",
+    });
+    
+    // Simulate verification process (accepts any transaction hash)
     setTimeout(() => {
-      // In a real application, this would be an API call to verify the transaction
-      // For demo purposes, we're simulating success after a short delay
+      // Success with any transaction hash
+      setVerificationStatus("success");
+      toast({
+        title: "Payment verified!",
+        description: "Your payment has been successfully verified. Your download will begin automatically.",
+      });
       
-      if (transactionHash.length < 10) {
-        setVerificationStatus("error");
+      // Start download automatically
+      setTimeout(() => {
         toast({
-          title: "Verification failed",
-          description: "We couldn't verify your transaction. Please make sure you entered the correct transaction hash.",
-          variant: "destructive",
+          title: "Download started",
+          description: "Your download has started. If it doesn't begin automatically, please contact support.",
         });
-      } else {
-        setVerificationStatus("success");
-        toast({
-          title: "Payment verified!",
-          description: "Your payment has been successfully verified. You can now download Araish Pips Crasher.",
-        });
-      }
-    }, 2000);
+      }, 500);
+    }, 1500);
   };
   
   const handleDownload = () => {
@@ -155,12 +154,13 @@ export function BuyNow() {
                 <p className="text-xs">Secured transaction with 24/7 support. Once payment is confirmed, you'll receive instant download access.</p>
               </div>
               
-              <Button
-                className="brand-button text-white rounded-full w-full py-5"
-                onClick={handleOpenDialog}
-              >
-                Verify Payment <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <a href="#payment-verification">
+                <Button
+                  className="brand-button text-white rounded-full w-full py-5"
+                >
+                  Enter Transaction Hash <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </a>
             </div>
           </div>
           
@@ -198,7 +198,7 @@ export function BuyNow() {
                 </Button>
               </div>
               
-              <div className="mt-6">
+              <div id="payment-verification" className="mt-6">
                 <h4 className="font-medium text-base mb-2">Verify Your Transaction</h4>
                 <p className="text-xs text-muted-foreground mb-3">
                   After sending your payment, enter the transaction hash (TXID) from TRON blockchain to verify.
@@ -213,7 +213,7 @@ export function BuyNow() {
                 
                 <Button
                   className="brand-button text-white w-full"
-                  onClick={handleOpenDialog}
+                  onClick={handleVerifyPayment}
                 >
                   Verify Transaction
                 </Button>
@@ -222,86 +222,7 @@ export function BuyNow() {
           </div>
         </div>
       </div>
-      
-      {/* Payment Verification Dialog */}
-      <Dialog open={isDialogOpen} onOpenChange={handleCloseDialog}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle>Verify Your Payment</DialogTitle>
-            <DialogDescription>
-              Enter your transaction hash to verify your payment and download Araish Pips Crasher.
-            </DialogDescription>
-          </DialogHeader>
-          
-          <div className="grid gap-4 py-4">
-            <div className="grid gap-2">
-              <Label htmlFor="tx-hash">Transaction Hash</Label>
-              <Input
-                id="tx-hash"
-                value={transactionHash}
-                onChange={(e) => setTransactionHash(e.target.value)}
-                placeholder="e.g., 3a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u"
-                disabled={verificationStatus === "verifying" || verificationStatus === "success"}
-              />
-              <p className="text-xs text-muted-foreground">
-                Enter the transaction hash/ID from your USDT payment
-              </p>
-            </div>
-          </div>
-          
-          <DialogFooter className="flex flex-col sm:flex-row gap-2">
-            {verificationStatus === "idle" && (
-              <Button
-                type="button"
-                variant="default"
-                className="w-full sm:w-auto brand-button"
-                onClick={handleVerifyPayment}
-              >
-                Verify Payment
-              </Button>
-            )}
-            
-            {verificationStatus === "verifying" && (
-              <Button disabled className="w-full sm:w-auto">
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Verifying...
-              </Button>
-            )}
-            
-            {verificationStatus === "error" && (
-              <Button
-                type="button"
-                variant="destructive"
-                className="w-full sm:w-auto"
-                onClick={() => setVerificationStatus("idle")}
-              >
-                Try Again
-              </Button>
-            )}
-            
-            {verificationStatus === "success" && (
-              <Button
-                type="button"
-                variant="default"
-                className="w-full sm:w-auto brand-button"
-                onClick={handleDownload}
-              >
-                <Download className="mr-2 h-4 w-4" />
-                Download Now
-              </Button>
-            )}
-            
-            <Button
-              type="button"
-              variant="outline"
-              className="w-full sm:w-auto"
-              onClick={handleCloseDialog}
-            >
-              Cancel
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+
     </section>
   );
 }
