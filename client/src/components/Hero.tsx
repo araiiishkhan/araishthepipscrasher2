@@ -49,29 +49,29 @@ export function Hero() {
             </div>
           </div>
           
-          <div className="relative overflow-hidden">
-            <div className="w-full h-full">
-              <img 
-                src={images.presentation1}
-                alt="Araish - Trading Results" 
-                className="w-full h-auto object-cover rounded-xl shadow-xl transform hover:scale-105 transition-transform duration-500" 
-              />
+          <div className="relative flex justify-center items-center">
+            <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] relative floating-product">
+              <div className="w-full h-full relative z-10 bg-white rounded-full p-2">
+                <img 
+                  src={images.productBox} 
+                  alt="Araish - The Pips Crasher" 
+                  className="w-full h-full object-contain rounded-xl" 
+                  style={{ 
+                    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.15), 0 6px 16px rgba(0, 0, 0, 0.12)'
+                  }}
+                />
+              </div>
+              <div className="absolute -inset-12 bg-white rounded-full blur-xl"></div>
             </div>
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl blur-xl opacity-50"></div>
           </div>
         </div>
         
-        <div className="flex justify-center">
-          <div className="w-24 h-24 md:w-32 md:h-32 relative floating-product">
-            <div className="w-full h-full relative z-10">
-              <img 
-                src={images.productBox} 
-                alt="Araish - The Pips Crasher" 
-                className="w-full h-full object-contain shadow-lg" 
-              />
-            </div>
-            <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-xl opacity-70 animate-pulse"></div>
-          </div>
+        <div className="flex justify-center mt-12">
+          <img
+            src={images.presentation1}
+            alt="Araish - Trading Results" 
+            className="rounded-xl shadow-xl w-full max-w-5xl h-auto"
+          />
         </div>
       </div>
     </section>

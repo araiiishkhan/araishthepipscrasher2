@@ -17,7 +17,7 @@ export function Dashboard() {
   });
 
   return (
-    <section id="dashboard" className="py-16 px-6 md:px-10 bg-secondary">
+    <section id="dashboard" className="py-16 px-6 md:px-10 bg-white">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-3">
@@ -45,7 +45,7 @@ export function Dashboard() {
                   <CurrencyPairCard key={pair.id} pair={pair} />
                 ))}
               </div>
-              <Card className="bg-secondary">
+              <Card className="bg-gray-50 shadow-sm">
                 <CardHeader className="py-3 px-4">
                   <CardTitle className="text-base">Current Trading Signals</CardTitle>
                 </CardHeader>
@@ -69,16 +69,16 @@ export function Dashboard() {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 gap-4 mb-4">
-                <Card className="bg-secondary p-4">
+                <Card className="bg-gray-50 p-4 shadow-sm">
                   <p className="text-sm text-muted-foreground mb-1">Win Rate</p>
                   <p className="text-xl font-mono font-bold text-[#0ECB81]">91.7%</p>
                 </Card>
-                <Card className="bg-secondary p-4">
+                <Card className="bg-gray-50 p-4 shadow-sm">
                   <p className="text-sm text-muted-foreground mb-1">Profit Factor</p>
                   <p className="text-xl font-mono font-bold text-primary">3.8</p>
                 </Card>
               </div>
-              <Card className="bg-secondary p-4">
+              <Card className="bg-gray-50 p-4 shadow-sm">
                 <p className="font-bold text-primary mb-2 text-center">Monthly Performance</p>
                 <div className="w-full flex items-end justify-between h-20 px-2">
                   {monthlyChartData.map((item, index) => (
