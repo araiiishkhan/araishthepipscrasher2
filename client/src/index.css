@@ -95,6 +95,16 @@
   transform: translateY(-2px);
 }
 
+.title-gradient {
+  background: linear-gradient(135deg, #33B3E3, #9966FF);
+  transition: all 0.3s ease;
+}
+
+.title-gradient:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
 .chart-container {
   height: 300px;
 }
