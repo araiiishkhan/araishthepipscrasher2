@@ -21,16 +21,12 @@ export function Navbar() {
     <nav className="bg-background py-4 px-6 md:px-10 sticky top-0 z-50 shadow-sm border-b border-border">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <div className="w-8 h-8 rounded-full overflow-hidden mr-3">
-            <img src={images.logo} alt="Logo" className="w-full h-full object-cover" />
-          </div>
-          <div>
-            <Link href="/" className="flex flex-col">
-              <span className="font-bold text-lg" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800 }}>
-                <span style={{ color: "#000000" }}>Araish the Pips Crasher</span>
-              </span>
-            </Link>
-          </div>
+          <Link href="/">
+            <div className="h-14 w-auto overflow-hidden">
+              <img src={images.logo} alt="Araish Logo" className="h-full w-auto object-contain" />
+            </div>
+          </Link>
+          {/* Removed the text since we now have a logo with text */}
         </div>
 
         {/* Desktop Menu */}

@@ -36,7 +36,7 @@ export const images = {
   testimonialBg: image11,
   productDemo: image12,
   interfaceDemo: image6,
-  logo: untitled
+  logo: image22 // Using Araish logo image
 };
 
 export default images;
