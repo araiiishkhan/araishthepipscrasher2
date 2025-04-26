@@ -5,6 +5,7 @@ export interface Testimonial {
     name: string;
     title: string;
     initials: string;
+    location: string;
   };
   rating: number;
 }
@@ -17,6 +18,7 @@ export const testimonials: Testimonial[] = [
       name: "James P.",
       title: "Professional Trader",
       initials: "JP",
+      location: "London, UK"
     },
     rating: 5,
   },
@@ -27,6 +29,7 @@ export const testimonials: Testimonial[] = [
       name: "Sarah K.",
       title: "New Trader",
       initials: "SK",
+      location: "New York, USA"
     },
     rating: 5,
   },
@@ -37,8 +40,42 @@ export const testimonials: Testimonial[] = [
       name: "Robert J.",
       title: "Institutional Trader",
       initials: "RJ",
+      location: "Tokyo, Japan"
     },
     rating: 5,
+  },
+  {
+    id: 4,
+    text: "I've tried numerous GBP/JPY EAs before, but Araish truly stands out. The algorithm catches moves other systems miss completely. My account has grown 32% in just one month.",
+    author: {
+      name: "Emma T.",
+      title: "Full-time Trader",
+      initials: "ET",
+      location: "Sydney, Australia"
+    },
+    rating: 5,
+  },
+  {
+    id: 5,
+    text: "The back-testing results actually match real-world performance, which is rare. Finally found a system that actually delivers on its promises for GBP/JPY.",
+    author: {
+      name: "Raj P.",
+      title: "Algorithm Developer",
+      initials: "RP",
+      location: "Mumbai, India"
+    },
+    rating: 5,
+  },
+  {
+    id: 6,
+    text: "This system works incredibly well in both trending and ranging markets. The advanced filtering techniques prevent false signals that plagued other systems I've used.",
+    author: {
+      name: "Alexander K.",
+      title: "Experienced Investor",
+      initials: "AK",
+      location: "Berlin, Germany"
+    },
+    rating: 4,
   },
 ];
 

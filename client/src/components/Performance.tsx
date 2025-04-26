@@ -5,55 +5,63 @@ import PerformanceCard from "./PerformanceCard";
 import { testimonials, performanceMetrics } from "@/lib/testimonials";
 import { performanceMetrics as metrics } from "@/lib/cryptoData";
 import { images } from "@/assets/images";
+import { ChartIcon } from "@/assets/icons";
 
 export function Performance() {
   return (
-    <section id="performance" className="py-16 px-6 md:px-10 bg-background">
+    <section id="performance" className="py-20 px-6 md:px-10 bg-background">
       <div className="container mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-3">
-            Proven <span className="text-primary">Performance</span>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold mb-4">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-primary">Performance</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            See our verified trading results and investor testimonials
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            See our verified trading results and trader testimonials
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8 mb-10">
-          <Card className="bg-secondary">
-            <CardHeader>
-              <CardTitle>Trading Results</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="rounded-lg overflow-hidden mb-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-white shadow-lg rounded-2xl overflow-hidden mb-16">
+            <div className="bg-gradient-to-r from-secondary to-primary p-4 text-white">
+              <h3 className="font-bold text-lg">Trading Results</h3>
+            </div>
+            <div className="p-6">
+              <div className="rounded-lg overflow-hidden mb-8">
                 <img 
                   src={images.tradingResults} 
                   alt="Trading Results Chart" 
-                  className="w-full aspect-[16/9] object-cover object-center"
+                  className="w-full aspect-[16/9] object-cover object-center rounded-lg"
                 />
               </div>
-              <div className="grid grid-cols-3 gap-4 mb-4">
-                <div className="text-center">
-                  <p className="text-sm text-muted-foreground">Monthly Return</p>
-                  <p className="text-2xl font-mono font-bold text-[#0ECB81]">{metrics.monthlyReturn}</p>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="bg-muted/30 p-4 rounded-xl text-center">
+                  <p className="text-sm text-muted-foreground mb-1">Monthly Return</p>
+                  <p className="text-2xl font-bold text-secondary">{metrics.monthlyReturn}</p>
                 </div>
-                <div className="text-center">
-                  <p className="text-sm text-muted-foreground">Daily Growth</p>
-                  <p className="text-2xl font-mono font-bold text-[#0ECB81]">{metrics.dailyGrowth}</p>
+                <div className="bg-muted/30 p-4 rounded-xl text-center">
+                  <p className="text-sm text-muted-foreground mb-1">Daily Growth</p>
+                  <p className="text-2xl font-bold text-primary">{metrics.dailyGrowth}</p>
                 </div>
-                <div className="text-center">
-                  <p className="text-sm text-muted-foreground">Drawdown</p>
-                  <p className="text-2xl font-mono font-bold text-[#F6465D]">{metrics.drawdown}</p>
+                <div className="bg-muted/30 p-4 rounded-xl text-center">
+                  <p className="text-sm text-muted-foreground mb-1">Drawdown</p>
+                  <p className="text-2xl font-bold text-accent">{metrics.drawdown}</p>
+                </div>
+                <div className="bg-muted/30 p-4 rounded-xl text-center">
+                  <p className="text-sm text-muted-foreground mb-1">Win Rate</p>
+                  <p className="text-2xl font-bold text-secondary">{metrics.winRate}</p>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
           
-          <Card className="bg-secondary">
-            <CardHeader>
-              <CardTitle>Live Performance</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
+          <div className="mb-16">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-2">Live Trading Metrics</h3>
+              <p className="text-muted-foreground">Consistent performance across various market conditions</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6">
               {performanceMetrics.map((metric) => (
                 <PerformanceCard
                   key={metric.id}
@@ -62,42 +70,49 @@ export function Performance() {
                   percentage={metric.percentage}
                 />
               ))}
-            </CardContent>
-          </Card>
-        </div>
-        
-        {/* Presentation Photos */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-          <div className="rounded-xl overflow-hidden">
-            <img
-              src={images.presentation1}
-              alt="Araish presentation"
-              className="w-full h-auto transform hover:scale-105 transition-transform duration-300"
-            />
+            </div>
           </div>
-          <div className="rounded-xl overflow-hidden">
-            <img
-              src={images.presentation2}
-              alt="Araish presentation"
-              className="w-full h-auto transform hover:scale-105 transition-transform duration-300"
-            />
+          
+          {/* Presentation Photos */}
+          <div className="mb-16">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-2">Verified Results</h3>
+              <p className="text-muted-foreground">Real trading screenshots from our users</p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white p-3 rounded-xl shadow-md overflow-hidden">
+                <img
+                  src={images.presentation1}
+                  alt="Araish presentation"
+                  className="w-full h-auto rounded-lg transform hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="bg-white p-3 rounded-xl shadow-md overflow-hidden">
+                <img
+                  src={images.presentation2}
+                  alt="Araish presentation"
+                  className="w-full h-auto rounded-lg transform hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="bg-white p-3 rounded-xl shadow-md overflow-hidden">
+                <img
+                  src={images.presentation3}
+                  alt="Araish presentation"
+                  className="w-full h-auto rounded-lg transform hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
           </div>
-          <div className="rounded-xl overflow-hidden">
-            <img
-              src={images.presentation3}
-              alt="Araish presentation"
-              className="w-full h-auto transform hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-        </div>
-        
-        {/* Testimonials */}
-        <Card className="bg-secondary p-6 md:p-8">
-          <CardHeader className="text-center p-0 mb-6">
-            <CardTitle>What Traders Say About Araish</CardTitle>
-          </CardHeader>
-          <CardContent className="p-0">
-            <div className="grid md:grid-cols-3 gap-6">
+          
+          {/* Testimonials */}
+          <div>
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-2">Trader Testimonials</h3>
+              <p className="text-muted-foreground">What our users say about Araish Pips Crasher</p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-5">
               {testimonials.map((testimonial) => (
                 <TestimonialCard
                   key={testimonial.id}
@@ -105,8 +120,8 @@ export function Performance() {
                 />
               ))}
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     </section>
   );
