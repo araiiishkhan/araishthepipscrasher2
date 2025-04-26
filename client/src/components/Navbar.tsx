@@ -26,10 +26,10 @@ export function Navbar() {
           </div>
           <div>
             <Link href="/" className="flex flex-col">
-              <span className="font-bold" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.1)' }}>
-                <span className="text-primary">Araish</span>{" "}
-                <span className="text-secondary">the Pips</span>{" "}
-                <span className="text-primary">Crasher</span>
+              <span className="font-bold text-lg">
+                <span style={{ color: "#33B3E3" }}>Araish </span>
+                <span style={{ color: "#9966FF" }}>the Pips </span>
+                <span style={{ color: "#33B3E3" }}>Crasher</span>
               </span>
             </Link>
           </div>
