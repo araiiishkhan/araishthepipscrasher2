@@ -31,11 +31,11 @@ export function PerformanceCard({ label, value, percentage }: PerformanceCardPro
             {value}
           </p>
         </div>
-        <div className="w-12 h-12 rounded-full bg-muted/30 flex items-center justify-center">
+        <div className="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center">
           <div className="w-8 h-8 rounded-full bg-gradient-to-r from-secondary to-primary opacity-20"></div>
         </div>
       </div>
-      <div className="relative w-full h-2 bg-muted/30 rounded-full overflow-hidden">
+      <div className="relative w-full h-2 bg-gray-100 rounded-full overflow-hidden">
         <div 
           className={`absolute top-0 left-0 h-full rounded-full bg-gradient-to-r ${getGradientColors()}`}
           style={{ width: `${percentage}%` }}

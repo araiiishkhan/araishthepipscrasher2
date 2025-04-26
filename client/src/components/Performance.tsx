@@ -35,19 +35,19 @@ export function Performance() {
               </div>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div className="bg-muted/30 p-4 rounded-xl text-center">
+                <div className="bg-gray-50 p-4 rounded-xl text-center">
                   <p className="text-sm text-muted-foreground mb-1">Monthly Return</p>
                   <p className="text-2xl font-bold text-secondary">{metrics.monthlyReturn}</p>
                 </div>
-                <div className="bg-muted/30 p-4 rounded-xl text-center">
+                <div className="bg-gray-50 p-4 rounded-xl text-center">
                   <p className="text-sm text-muted-foreground mb-1">Daily Growth</p>
                   <p className="text-2xl font-bold text-primary">{metrics.dailyGrowth}</p>
                 </div>
-                <div className="bg-muted/30 p-4 rounded-xl text-center">
+                <div className="bg-gray-50 p-4 rounded-xl text-center">
                   <p className="text-sm text-muted-foreground mb-1">Drawdown</p>
                   <p className="text-2xl font-bold text-accent">{metrics.drawdown}</p>
                 </div>
-                <div className="bg-muted/30 p-4 rounded-xl text-center">
+                <div className="bg-gray-50 p-4 rounded-xl text-center">
                   <p className="text-sm text-muted-foreground mb-1">Win Rate</p>
                   <p className="text-2xl font-bold text-secondary">{metrics.winRate}</p>
                 </div>

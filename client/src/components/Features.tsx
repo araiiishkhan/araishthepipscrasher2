@@ -4,7 +4,7 @@ import { images } from "@/assets/images";
 
 export function Features() {
   return (
-    <section id="features" className="py-20 px-6 md:px-10 bg-muted/50">
+    <section id="features" className="py-20 px-6 md:px-10 bg-white">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.1)' }}>

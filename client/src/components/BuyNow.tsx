@@ -33,7 +33,7 @@ export function BuyNow() {
   };
 
   return (
-    <section id="buy-now" className="py-16 px-6 md:px-10 bg-muted/30">
+    <section id="buy-now" className="py-16 px-6 md:px-10 bg-white">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-3">
@@ -48,7 +48,7 @@ export function BuyNow() {
           <CardContent className="p-0">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <div className="bg-muted/30 rounded-xl p-6 mb-6 relative">
+                <div className="bg-gray-50 rounded-xl p-6 mb-6 relative">
                   <div className="absolute -top-3 -right-3 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
                     LIMITED OFFER
                   </div>
@@ -98,7 +98,7 @@ export function BuyNow() {
               <div className="flex flex-col h-full justify-between">
                 <div className="mb-6">
                   <h3 className="text-lg font-bold mb-4">Payment Information</h3>
-                  <Card className="bg-muted/30 border-0 mb-6">
+                  <Card className="bg-gray-50 border-0 mb-6">
                     <CardContent className="p-4">
                       <p className="text-sm mb-2 font-medium">USDT Payment Address (TRC20):</p>
                       <div className="bg-white p-3 rounded-lg font-mono text-xs break-all mb-3 border border-border">
@@ -124,7 +124,7 @@ export function BuyNow() {
                   
                   <div className="space-y-4">
                     <h4 className="font-medium text-sm">After Payment:</h4>
-                    <div className="bg-muted/30 rounded-lg p-4">
+                    <div className="bg-gray-50 rounded-lg p-4">
                       <ol className="list-decimal pl-4 space-y-2 text-sm">
                         <li>Send payment confirmation to <span className="font-medium">support@araishpipscrasher.com</span></li>
                         <li>Include your transaction ID and email address</li>
