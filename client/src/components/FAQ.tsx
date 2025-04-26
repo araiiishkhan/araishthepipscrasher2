@@ -13,7 +13,7 @@ interface FAQItemProps {
 
 function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
   return (
-    <Card className="bg-secondary">
+    <Card className="bg-gray-50 shadow-sm">
       <div
         className="flex justify-between items-center p-5 cursor-pointer"
         onClick={onToggle}
