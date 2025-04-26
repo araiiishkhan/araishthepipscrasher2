@@ -1,52 +1,66 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { images } from "@/assets/images";
+import { ChevronRight, Play } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="py-12 md:py-20 px-6 md:px-10 gradient-bg relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=1932&auto=format&fit=crop')] opacity-10 bg-cover bg-center"></div>
-      <div className="container mx-auto relative z-10">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Dominate <span className="text-primary">GBP/JPY</span> Trading
-            </h1>
-            <p className="text-xl md:text-2xl mb-6 text-muted-foreground">
-              Step into the future of trading with Araish - The Pips Crasher.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <a href="#buy-now">
-                <Button className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-6 text-lg h-auto">
-                  Get Started Today
-                </Button>
-              </a>
-              <a href="#performance">
-                <Button
-                  variant="outline"
-                  className="w-full sm:w-auto border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-6 text-lg h-auto"
-                >
-                  View Performance
-                </Button>
-              </a>
-            </div>
-            <div className="flex items-center space-x-6">
-              <div className="flex flex-col">
-                <span className="text-4xl font-bold text-[#0ECB81] font-mono">+391%</span>
-                <span className="text-muted-foreground text-sm">Monthly Return</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-4xl font-bold text-primary font-mono">+25.5%</span>
-                <span className="text-muted-foreground text-sm">Daily Growth</span>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <img
-              src="https://i.imgur.com/DKq2EoL.jpg"
-              alt="Araish - The Pips Crasher"
-              className="rounded-lg shadow-2xl max-w-full h-auto"
+    <section className="py-12 md:py-24 px-6 md:px-10 bg-background">
+      <div className="container mx-auto">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
+          <div className="w-32 h-32 mb-8">
+            <img 
+              src={images.productBox} 
+              alt="Araish - The Pips Crasher" 
+              className="w-full h-full object-contain" 
             />
           </div>
+          
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-primary">Araish</span>{" "}
+            <span className="text-foreground">the Pips</span>{" "}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Crasher</span>
+          </h1>
+          
+          <p className="text-xl md:text-2xl mb-8 text-muted-foreground max-w-2xl">
+            Specialized algorithmic trading solution for the GBP/JPY forex pair, engineered with advanced precision and risk management.
+          </p>
+          
+          <div className="flex flex-wrap gap-4 justify-center mb-8">
+            <div className="flex items-center bg-muted rounded-full px-4 py-2 text-sm">
+              <span className="bg-secondary h-2 w-2 rounded-full mr-2"></span>
+              Risk Management
+            </div>
+            <div className="flex items-center bg-muted rounded-full px-4 py-2 text-sm">
+              <span className="bg-primary h-2 w-2 rounded-full mr-2"></span>
+              Real-time Trading
+            </div>
+            <div className="flex items-center bg-muted rounded-full px-4 py-2 text-sm">
+              <span className="bg-accent h-2 w-2 rounded-full mr-2"></span>
+              Instant Download
+            </div>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-5 justify-center">
+            <a href="#buy-now">
+              <Button className="brand-button text-white rounded-full px-8 py-6 text-base h-auto shadow-lg">
+                Buy & Download Now <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+          </div>
+          
+          <div className="mt-10 text-2xl font-bold">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">$1,199</span>
+            <span className="text-sm font-normal text-muted-foreground ml-2">USD/USDT</span>
+          </div>
+        </div>
+        
+        <div className="flex justify-center">
+          <img
+            src={images.presentation1}
+            alt="Araish - Trading Results"
+            className="rounded-xl shadow-xl max-w-3xl w-full h-auto"
+          />
         </div>
       </div>
     </section>

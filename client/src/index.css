@@ -4,51 +4,51 @@
 
 @layer base {
   :root {
-    --background: 223 19% 13%;  /* #1E2026 */
-    --foreground: 0 0% 100%;    /* #FFFFFF */
+    --background: 0 0% 100%;     /* #FFFFFF - White background */
+    --foreground: 262 78% 27%;   /* #42237E - Dark purple */
     
-    --muted: 215 10% 23%;       /* Muted version of background */
-    --muted-foreground: 215 5% 65%;
+    --muted: 0 0% 96%;           /* #F5F5F5 - Light gray */
+    --muted-foreground: 262 30% 50%; /* Muted purple */
     
-    --popover: 223 19% 13%;     /* Same as background */
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;        /* White */
+    --popover-foreground: 262 78% 27%; /* Dark purple */
     
-    --card: 217 11% 20%;        /* #2B2F36 */
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 98%;            /* #FAFAFA - Almost white */
+    --card-foreground: 262 78% 27%;
     
-    --border: 217 11% 25%;      /* Slightly lighter than card */
-    --input: 217 11% 25%;
+    --border: 270 50% 85%;       /* Light lavender border */
+    --input: 270 50% 85%;
     
-    --primary: 45 100% 50%;     /* #F0B90B */
-    --primary-foreground: 223 19% 13%;
+    --primary: 289 78% 60%;      /* #C041DF - Pink/Purple */
+    --primary-foreground: 0 0% 100%;
     
-    --secondary: 217 11% 20%;   /* Same as card */
+    --secondary: 262 78% 60%;    /* #7E41DF - Purple */
     --secondary-foreground: 0 0% 100%;
     
-    --accent: 45 100% 50%;      /* Same as primary */
-    --accent-foreground: 223 19% 13%;
+    --accent: 316 78% 60%;       /* #DF41A0 - Pink */
+    --accent-foreground: 0 0% 100%;
     
-    --destructive: 0 84% 60%;   /* #F6465D */
+    --destructive: 0 84% 60%;    /* #F6465D - Red */
     --destructive-foreground: 0 0% 100%;
     
-    --ring: 45 100% 50%;
+    --ring: 289 78% 60%;
     
     --radius: 0.5rem;
     
-    --chart-1: 154 78% 45%;    /* #0ECB81 */
-    --chart-2: 0 84% 60%;      /* #F6465D */
-    --chart-3: 45 100% 50%;    /* #F0B90B */
-    --chart-4: 211 100% 50%;
-    --chart-5: 280 100% 50%;
+    --chart-1: 262 78% 60%;      /* Purple */
+    --chart-2: 289 78% 60%;      /* Pink/Purple */
+    --chart-3: 316 78% 60%;      /* Pink */
+    --chart-4: 211 100% 50%;     /* Blue */
+    --chart-5: 180 100% 50%;     /* Cyan */
     
-    --sidebar-background: 223 19% 13%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 45 100% 50%;
-    --sidebar-primary-foreground: 223 19% 13%;
-    --sidebar-accent: 217 11% 20%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 217 11% 25%;
-    --sidebar-ring: 45 100% 50%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 262 78% 27%;
+    --sidebar-primary: 289 78% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 98%;
+    --sidebar-accent-foreground: 262 78% 27%;
+    --sidebar-border: 270 50% 85%;
+    --sidebar-ring: 289 78% 60%;
   }
 }
 
@@ -69,13 +69,27 @@
 
 /* Custom Styles */
 .gradient-bg {
-  background: linear-gradient(135deg, hsl(223 19% 13%), hsl(217 11% 20%));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(250, 250, 250, 0.95));
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #F0B90B, #F5D76E);
+  background: linear-gradient(135deg, #C041DF, #DF41A0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, #42237E, #C041DF);
+}
+
+.brand-button {
+  background: linear-gradient(135deg, #9340DC, #DF41A0);
+  transition: all 0.3s ease;
+}
+
+.brand-button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
 }
 
 .chart-container {
