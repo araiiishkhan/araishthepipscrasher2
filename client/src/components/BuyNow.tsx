@@ -1,15 +1,22 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check, Copy, CheckCircle, ArrowRight } from "lucide-react";
+import { Check, Copy, CheckCircle, ArrowRight, Loader2, Download } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { copyToClipboard } from "@/lib/utils";
 import { paymentAddress, productPrice, originalPrice } from "@/lib/cryptoData";
 import { images } from "@/assets/images";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export function BuyNow() {
   const { toast } = useToast();
   const [isCopied, setIsCopied] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [transactionHash, setTransactionHash] = useState("");
+  const [verificationStatus, setVerificationStatus] = useState<"idle" | "verifying" | "success" | "error">("idle");
+  const [email, setEmail] = useState("");
 
   const handleCopyAddress = async () => {
     try {
@@ -30,6 +37,72 @@ export function BuyNow() {
         variant: "destructive",
       });
     }
+  };
+  
+  const handleOpenDialog = () => {
+    setIsDialogOpen(true);
+    setVerificationStatus("idle");
+    setTransactionHash("");
+    setEmail("");
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+  };
+  
+  const handleVerifyPayment = () => {
+    if (!transactionHash.trim()) {
+      toast({
+        title: "Missing information",
+        description: "Please enter your transaction hash.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (!email.trim()) {
+      toast({
+        title: "Missing information",
+        description: "Please enter your email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    setVerificationStatus("verifying");
+    
+    // Simulate verification process
+    setTimeout(() => {
+      // In a real application, this would be an API call to verify the transaction
+      // For demo purposes, we're simulating success after a short delay
+      
+      if (transactionHash.length < 10) {
+        setVerificationStatus("error");
+        toast({
+          title: "Verification failed",
+          description: "We couldn't verify your transaction. Please make sure you entered the correct transaction hash.",
+          variant: "destructive",
+        });
+      } else {
+        setVerificationStatus("success");
+        toast({
+          title: "Payment verified!",
+          description: "Your payment has been successfully verified. You can now download Araish Pips Crasher.",
+        });
+      }
+    }, 2000);
+  };
+  
+  const handleDownload = () => {
+    // In a real application, this would trigger the actual download
+    // or redirect to a download page
+    toast({
+      title: "Download started",
+      description: "Your download should begin shortly. If it doesn't, please contact support.",
+    });
+    
+    // Close the dialog after download is initiated
+    setIsDialogOpen(false);
   };
 
   return (
@@ -89,8 +162,9 @@ export function BuyNow() {
                   
                   <Button
                     className="brand-button text-white rounded-full w-full py-5"
+                    onClick={handleOpenDialog}
                   >
-                    Purchase Now <ArrowRight className="ml-2 h-4 w-4" />
+                    Verify Payment <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
               </div>
@@ -126,10 +200,10 @@ export function BuyNow() {
                     <h4 className="font-medium text-sm">After Payment:</h4>
                     <div className="bg-gray-50 rounded-lg p-4">
                       <ol className="list-decimal pl-4 space-y-2 text-sm">
-                        <li>Send payment confirmation to <span className="font-medium">support@araishpipscrasher.com</span></li>
-                        <li>Include your transaction ID and email address</li>
-                        <li>Receive download link within 24 hours</li>
-                        <li>Follow setup instructions to start trading</li>
+                        <li>Send <span className="font-medium">exact amount</span> to the address above</li>
+                        <li>Click <span className="font-medium">Verify Payment</span> button</li>
+                        <li>Enter your transaction hash and email</li>
+                        <li>Download instantly after verification</li>
                       </ol>
                     </div>
                   </div>
@@ -146,6 +220,101 @@ export function BuyNow() {
           </CardContent>
         </Card>
       </div>
+      
+      {/* Payment Verification Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={handleCloseDialog}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Verify Your Payment</DialogTitle>
+            <DialogDescription>
+              Enter your transaction hash and email to verify your payment and download Araish Pips Crasher.
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="grid gap-4 py-4">
+            <div className="grid gap-2">
+              <Label htmlFor="tx-hash">Transaction Hash</Label>
+              <Input
+                id="tx-hash"
+                value={transactionHash}
+                onChange={(e) => setTransactionHash(e.target.value)}
+                placeholder="e.g., 3a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u"
+                disabled={verificationStatus === "verifying" || verificationStatus === "success"}
+              />
+              <p className="text-xs text-muted-foreground">
+                Enter the transaction hash/ID from your USDT payment
+              </p>
+            </div>
+            
+            <div className="grid gap-2">
+              <Label htmlFor="email">Email Address</Label>
+              <Input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="your@email.com"
+                disabled={verificationStatus === "verifying" || verificationStatus === "success"}
+              />
+              <p className="text-xs text-muted-foreground">
+                We'll send your receipt and support information to this email
+              </p>
+            </div>
+          </div>
+          
+          <DialogFooter className="flex flex-col sm:flex-row gap-2">
+            {verificationStatus === "idle" && (
+              <Button
+                type="button"
+                variant="default"
+                className="w-full sm:w-auto brand-button"
+                onClick={handleVerifyPayment}
+              >
+                Verify Payment
+              </Button>
+            )}
+            
+            {verificationStatus === "verifying" && (
+              <Button disabled className="w-full sm:w-auto">
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Verifying...
+              </Button>
+            )}
+            
+            {verificationStatus === "error" && (
+              <Button
+                type="button"
+                variant="destructive"
+                className="w-full sm:w-auto"
+                onClick={() => setVerificationStatus("idle")}
+              >
+                Try Again
+              </Button>
+            )}
+            
+            {verificationStatus === "success" && (
+              <Button
+                type="button"
+                variant="default"
+                className="w-full sm:w-auto brand-button"
+                onClick={handleDownload}
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Download Now
+              </Button>
+            )}
+            
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full sm:w-auto"
+              onClick={handleCloseDialog}
+            >
+              Cancel
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }

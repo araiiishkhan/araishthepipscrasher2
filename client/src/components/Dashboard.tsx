@@ -4,15 +4,21 @@ import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import TradingChart from "./TradingChart";
 import CurrencyPairCard from "./CurrencyPairCard";
-import { initialCryptoPairs, initialTradingSignals, monthlyChartData } from "@/lib/cryptoData";
+import { 
+  initialCryptoPairs, 
+  initialTradingSignals, 
+  monthlyChartData, 
+  type CryptoPair, 
+  type TradingSignal 
+} from "@/lib/cryptoData";
 import { useQuery } from "@tanstack/react-query";
 
 export function Dashboard() {
-  const { data: pairs = initialCryptoPairs, isLoading: isLoadingPairs } = useQuery({
+  const { data: pairs = initialCryptoPairs, isLoading: isLoadingPairs } = useQuery<CryptoPair[]>({
     queryKey: ["/api/crypto-pairs"],
   });
 
-  const { data: signals = initialTradingSignals, isLoading: isLoadingSignals } = useQuery({
+  const { data: signals = initialTradingSignals, isLoading: isLoadingSignals } = useQuery<TradingSignal[]>({
     queryKey: ["/api/trading-signals"],
   });
 
@@ -41,7 +47,7 @@ export function Dashboard() {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 gap-4 mb-4">
-                {pairs.slice(0, 2).map((pair) => (
+                {pairs.slice(0, 2).map((pair: CryptoPair) => (
                   <CurrencyPairCard key={pair.id} pair={pair} />
                 ))}
               </div>
@@ -50,7 +56,7 @@ export function Dashboard() {
                   <CardTitle className="text-base">Current Trading Signals</CardTitle>
                 </CardHeader>
                 <CardContent className="p-4">
-                  {signals.filter(s => s.pair === "GBP/JPY").map((signal) => (
+                  {signals.filter((s: TradingSignal) => s.pair === "GBP/JPY").map((signal: TradingSignal) => (
                     <div key={signal.id} className="flex justify-between items-center mb-2 last:mb-0">
                       <span>{signal.pair} {signal.timeframe}</span>
                       <Badge variant="default" className={signal.signal === 'BUY' ? 'bg-[#0ECB81] text-primary-foreground' : 'bg-[#F6465D] text-primary-foreground'}>
