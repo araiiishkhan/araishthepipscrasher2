@@ -1,0 +1,14 @@
+Assistant checkpoint: Update title gradient and styling to match screenshot
+
+Assistant generated file changes:
+- client/src/index.css: Update gradient colors for title
+- client/src/components/Hero.tsx: Update hero title styling
+
+---
+
+User prompt:
+
+make the title the same in the screenshot  completly the same
+
+Replit-Commit-Author: Assistant
+Replit-Commit-Session-Id: a56f8ba7-bae1-4a7b-838b-f4016e151543
