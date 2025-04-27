@@ -10,7 +10,58 @@
   </head>
   <body>
     <div id="root"></div>
+    <div id="agent-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; cursor: move;">
+      <script
+        type="module"
+        src="https://agent.d-id.com/v1/index.js"
+        data-name="did-agent"
+        data-mode="fabio"
+        data-client-key="YXV0aDB8NjgwOTUyZTYwNTFkZWU5MjQyZWQ0MGY0OlB2M180b0s4azExblBaWGpPSHlNcA=="
+        data-agent-id="agt_O64ywLXj"
+        data-monitor="true">
+      </script>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Make the agent container draggable
+      const agentContainer = document.getElementById('agent-container');
+      let isDragging = false;
+      let currentX;
+      let currentY;
+      let initialX;
+      let initialY;
+
+      agentContainer.addEventListener('mousedown', dragStart);
+      document.addEventListener('mousemove', drag);
+      document.addEventListener('mouseup', dragEnd);
+
+      function dragStart(e) {
+        initialX = e.clientX - currentX;
+        initialY = e.clientY - currentY;
+        if (e.target === agentContainer) {
+          isDragging = true;
+        }
+      }
+
+      function drag(e) {
+        if (isDragging) {
+          e.preventDefault();
+          currentX = e.clientX - initialX;
+          currentY = e.clientY - initialY;
+          setTranslate(currentX, currentY, agentContainer);
+        }
+      }
+
+      function dragEnd(e) {
+        initialX = currentX;
+        initialY = currentY;
+        isDragging = false;
+      }
+
+      function setTranslate(xPos, yPos, el) {
+        el.style.transform = `translate(${xPos}px, ${yPos}px)`;
+      }
+    </script>
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
     <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
   </body>
