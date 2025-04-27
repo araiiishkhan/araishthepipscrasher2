@@ -10,18 +10,20 @@
   </head>
   <body>
     <div id="root"></div>
-    <div id="agent-container" style="position: fixed; bottom: 40px; right: 40px; z-index: 9999; cursor: move; min-width: 350px; min-height: 260px; background: rgba(255,255,255,0.1); border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.2); backdrop-filter: blur(8px);">
+    <div id="agent-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; cursor: move; width: 320px; height: 400px; background: transparent;">
       <script
+        async
         type="module"
         src="https://agent.d-id.com/v1/index.js"
         data-name="did-agent"
         data-mode="fabio"
         data-client-key="Z29vZ2xlLW9hdXRoMnwxMTM5NjUxODUxODAwMTE3NTc1Mjc6ek81RlVMMjNuNnJTQjF1c0hvVVRV"
         data-agent-id="agt_8aJz7hRe"
-        data-layout="full"
+        data-layout="minimal"
         data-width="320"
-        data-height="240"
-        data-monitor="true">
+        data-height="400"
+        data-monitor="true"
+        data-position="right">
       </script>
     </div>
     <script type="module" src="/src/main.tsx"></script>
