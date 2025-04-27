@@ -20,16 +20,16 @@
       data-agent-id="agt_8aJz7hRe"
       data-width="320"
       data-height="400"
-      data-position="bottom-right"
     ></script>
     <style>
       #did-container {
         position: fixed !important;
         bottom: 20px !important;
         right: 20px !important;
-        z-index: 999999 !important;
         width: 320px !important;
         height: 400px !important;
+        z-index: 2147483647 !important;
+        background: transparent !important;
       }
     </style>
     <style>
@@ -88,10 +88,10 @@
             const rect = el.getBoundingClientRect();
             const maxX = window.innerWidth - rect.width;
             const maxY = window.innerHeight - rect.height;
-            
+
             xPos = Math.min(Math.max(0, xPos), maxX);
             yPos = Math.min(Math.max(0, yPos), maxY);
-            
+
             el.style.transform = `translate(${xPos}px, ${yPos}px)`;
           }
 
