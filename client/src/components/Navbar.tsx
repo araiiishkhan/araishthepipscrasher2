@@ -43,7 +43,7 @@ export function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-foreground hover:text-primary transition-colors text-sm font-medium"
+              className="text-lg font-bold px-4 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-700 transition-colors" // Updated styling
             >
               {link.name}
             </a>
@@ -68,7 +68,7 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-foreground hover:text-primary transition-colors"
+                className="text-lg font-bold px-4 py-2 rounded-md text-white bg-blue-500 hover:bg-blue-700 transition-colors" // Updated styling
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.name}
