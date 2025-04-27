@@ -5,16 +5,15 @@ import { Badge } from "@/components/ui/badge";
 import TradingChart from "./TradingChart";
 import CurrencyPairCard from "./CurrencyPairCard";
 import { 
-  initialCryptoPairs, 
-  initialTradingSignals, 
-  monthlyChartData, 
+  initialForexPairs, 
+  initialTradingSignals,
   type ForexPair, 
   type TradingSignal 
-} from "@/lib/cryptoData";
+} from "@/lib/forexData";
 import { useQuery } from "@tanstack/react-query";
 
 export function Dashboard() {
-  const { data: pairs = initialCryptoPairs, isLoading: isLoadingPairs } = useQuery<CryptoPair[]>({
+  const { data: pairs = initialForexPairs, isLoading: isLoadingPairs } = useQuery<ForexPair[]>({
     queryKey: ["/api/crypto-pairs"],
   });
 

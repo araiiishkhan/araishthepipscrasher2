@@ -1,33 +1,22 @@
-export interface CryptoPair {
+export type ForexPair = {
   id: number;
   symbol: string;
   price: string;
   change: string;
   direction: 'up' | 'down';
   lastUpdated: string;
-}
+};
 
-export interface TradingSignal {
+export type TradingSignal = {
   id: number;
   pair: string;
   timeframe: string;
-  signal: 'BUY' | 'SELL' | 'NEUTRAL';
+  signal: string;
   strength: number;
   timestamp: string;
-}
+};
 
-export interface PerformanceMetrics {
-  monthlyReturn: string;
-  dailyGrowth: string;
-  drawdown: string;
-  winRate: string;
-  profitFactor: string;
-  balance: string;
-  tradingWeeks: string;
-  weeklyConsistency: string;
-}
-
-export const initialCryptoPairs: CryptoPair[] = [
+export const initialForexPairs: ForexPair[] = [
   { id: 1, symbol: "GBP/JPY", price: "181.971", change: "+0.12%", direction: "up", lastUpdated: new Date().toISOString() },
   { id: 2, symbol: "EUR/USD", price: "1.1305", change: "-0.08%", direction: "down", lastUpdated: new Date().toISOString() },
   { id: 3, symbol: "USD/JPY", price: "142.958", change: "+0.35%", direction: "up", lastUpdated: new Date().toISOString() },
@@ -42,6 +31,17 @@ export const initialTradingSignals: TradingSignal[] = [
   { id: 4, pair: "EUR/USD", timeframe: "1H", signal: "SELL", strength: 6, timestamp: new Date().toISOString() },
   { id: 5, pair: "USD/JPY", timeframe: "4H", signal: "BUY", strength: 8, timestamp: new Date().toISOString() }
 ];
+
+export interface PerformanceMetrics {
+  monthlyReturn: string;
+  dailyGrowth: string;
+  drawdown: string;
+  winRate: string;
+  profitFactor: string;
+  balance: string;
+  tradingWeeks: string;
+  weeklyConsistency: string;
+}
 
 export const performanceMetrics: PerformanceMetrics = {
   monthlyReturn: "+391.10%",
