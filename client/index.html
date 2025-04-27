@@ -48,17 +48,19 @@
     </style>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      // Wait for the D-ID agent to load
-      window.addEventListener('load', () => {
-        setTimeout(() => {
-          const agentContainer = document.getElementById('did-agent-container');
-          if (!agentContainer) return;
+      function initializeAgent() {
+        const agentContainer = document.getElementById('did-agent-container');
+        if (!agentContainer) {
+          console.log('Waiting for agent container...');
+          setTimeout(initializeAgent, 1000);
+          return;
+        }
 
-          let isDragging = false;
-          let currentX = 0;
-          let currentY = 0;
-          let initialX;
-          let initialY;
+        let isDragging = false;
+        let currentX = 0;
+        let currentY = 0;
+        let initialX;
+        let initialY;
 
           agentContainer.addEventListener('mousedown', dragStart);
           document.addEventListener('mousemove', drag);
@@ -111,7 +113,14 @@
             setTranslate(currentX, currentY, agentContainer);
           });
         }, 2000); // Wait for 2 seconds to ensure the agent is loaded
-      });
+      }
+
+      // Start initialization when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeAgent);
+      } else {
+        initializeAgent();
+      }
     </script>
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
     <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
