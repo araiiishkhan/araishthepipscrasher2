@@ -48,64 +48,69 @@
     </style>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      // Make the agent container draggable
-      const agentContainer = document.getElementById('agent-container');
-      let isDragging = false;
-      let currentX;
-      let currentY;
-      let initialX;
-      let initialY;
+      // Wait for the D-ID agent to load
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const agentContainer = document.getElementById('did-agent-container');
+          if (!agentContainer) return;
 
-      agentContainer.addEventListener('mousedown', dragStart);
-      document.addEventListener('mousemove', drag);
-      document.addEventListener('mouseup', dragEnd);
+          let isDragging = false;
+          let currentX = 0;
+          let currentY = 0;
+          let initialX;
+          let initialY;
 
-      function dragStart(e) {
-        initialX = e.clientX - currentX;
-        initialY = e.clientY - currentY;
-        if (e.target === agentContainer) {
-          isDragging = true;
-        }
-      }
+          agentContainer.addEventListener('mousedown', dragStart);
+          document.addEventListener('mousemove', drag);
+          document.addEventListener('mouseup', dragEnd);
 
-      function drag(e) {
-        if (isDragging) {
-          e.preventDefault();
-          currentX = e.clientX - initialX;
-          currentY = e.clientY - initialY;
+          function dragStart(e) {
+            initialX = e.clientX - currentX;
+            initialY = e.clientY - currentY;
+            if (e.target === agentContainer) {
+              isDragging = true;
+            }
+          }
+
+          function drag(e) {
+            if (isDragging) {
+              e.preventDefault();
+              currentX = e.clientX - initialX;
+              currentY = e.clientY - initialY;
+              setTranslate(currentX, currentY, agentContainer);
+            }
+          }
+
+          function dragEnd(e) {
+            initialX = currentX;
+            initialY = currentY;
+            isDragging = false;
+          }
+
+          function setTranslate(xPos, yPos, el) {
+            const rect = el.getBoundingClientRect();
+            const maxX = window.innerWidth - rect.width;
+            const maxY = window.innerHeight - rect.height;
+            
+            xPos = Math.min(Math.max(0, xPos), maxX);
+            yPos = Math.min(Math.max(0, yPos), maxY);
+            
+            el.style.transform = `translate(${xPos}px, ${yPos}px)`;
+          }
+
+          // Initialize position
+          currentX = window.innerWidth - agentContainer.offsetWidth - 40;
+          currentY = window.innerHeight - agentContainer.offsetHeight - 40;
           setTranslate(currentX, currentY, agentContainer);
-        }
-      }
 
-      function dragEnd(e) {
-        initialX = currentX;
-        initialY = currentY;
-        isDragging = false;
-      }
-
-      function setTranslate(xPos, yPos, el) {
-        // Keep agent within viewport bounds
-        const rect = el.getBoundingClientRect();
-        const maxX = window.innerWidth - rect.width;
-        const maxY = window.innerHeight - rect.height;
-        
-        xPos = Math.min(Math.max(0, xPos), maxX);
-        yPos = Math.min(Math.max(0, yPos), maxY);
-        
-        el.style.transform = `translate(${xPos}px, ${yPos}px)`;
-      }
-
-      // Initialize position
-      currentX = window.innerWidth - agentContainer.offsetWidth - 40;
-      currentY = window.innerHeight - agentContainer.offsetHeight - 40;
-      setTranslate(currentX, currentY, agentContainer);
-
-      // Handle window resize
-      window.addEventListener('resize', () => {
-        const rect = agentContainer.getBoundingClientRect();
-        currentX = Math.min(currentX, window.innerWidth - rect.width);
-        currentY = Math.min(currentY, window.innerHeight - rect.height);
-        setTranslate(currentX, currentY, agentContainer);
+          // Handle window resize
+          window.addEventListener('resize', () => {
+            const rect = agentContainer.getBoundingClientRect();
+            currentX = Math.min(currentX, window.innerWidth - rect.width);
+            currentY = Math.min(currentY, window.innerHeight - rect.height);
+            setTranslate(currentX, currentY, agentContainer);
+          });
+        }, 2000); // Wait for 2 seconds to ensure the agent is loaded
       });
     </script>
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
