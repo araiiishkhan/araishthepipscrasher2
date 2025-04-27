@@ -7,6 +7,7 @@ import CurrencyPairCard from "./CurrencyPairCard";
 import { 
   initialForexPairs, 
   initialTradingSignals,
+  monthlyChartData,
   type ForexPair, 
   type TradingSignal 
 } from "@/lib/forexData";
