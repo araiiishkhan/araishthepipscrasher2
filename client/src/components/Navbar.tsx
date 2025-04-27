@@ -7,6 +7,7 @@ import { images } from "@/assets/images";
 const NavLinks = [
   { name: "About Strategy", href: "#features" },
   { name: "Performance", href: "#performance" },
+  { name: "Buy Now", href: "#buy-now" },
 ];
 
 export function Navbar() {
