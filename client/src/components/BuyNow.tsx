@@ -73,9 +73,10 @@ export function BuyNow() {
       
       // Start download automatically
       setTimeout(() => {
+        window.location.href = "https://drive.google.com/file/d/1P6Z_De5HEabK3cBwPjidx7DVpCtS17w8/view?usp=drive_link";
         toast({
           title: "Download started",
-          description: "Your download has started. If it doesn't begin automatically, please contact support.",
+          description: "Your download should begin shortly in a new tab.",
         });
       }, 500);
     }, 1500);

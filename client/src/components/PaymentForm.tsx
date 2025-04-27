@@ -167,9 +167,10 @@ export function PaymentForm() {
                     return;
                   }
                   
+                  window.location.href = "https://drive.google.com/file/d/1P6Z_De5HEabK3cBwPjidx7DVpCtS17w8/view?usp=drive_link";
                   toast({
-                    title: "Download link sent!",
-                    description: "Check your email for the download link.",
+                    title: "Download started!",
+                    description: "Your download should begin shortly in a new tab.",
                   });
                 }}
               >
