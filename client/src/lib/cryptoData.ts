@@ -1,4 +1,4 @@
-export interface CryptoPair {
+export interface ForexPair {
   id: number;
   symbol: string;
   price: string;

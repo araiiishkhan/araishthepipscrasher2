@@ -76,8 +76,8 @@ export function PaymentForm() {
   return (
     <div className="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100">
       <div className="bg-gradient-to-r from-primary to-secondary text-white p-4 text-center">
-        <h3 className="text-xl font-bold">Secure Crypto Payment</h3>
-        <p className="text-sm opacity-90">Complete your purchase using USDT on the TRON blockchain</p>
+        <h3 className="text-xl font-bold">Secure Payment</h3>
+        <p className="text-sm opacity-90">Complete your purchase using USDT (TRC20)</p>
       </div>
       
       <div className="p-6 bg-white">

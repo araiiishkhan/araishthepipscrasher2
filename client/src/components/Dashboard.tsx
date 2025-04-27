@@ -8,7 +8,7 @@ import {
   initialCryptoPairs, 
   initialTradingSignals, 
   monthlyChartData, 
-  type CryptoPair, 
+  type ForexPair, 
   type TradingSignal 
 } from "@/lib/cryptoData";
 import { useQuery } from "@tanstack/react-query";

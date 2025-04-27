@@ -1,14 +1,14 @@
 import { Card } from "@/components/ui/card";
-import { CryptoPair } from "@/lib/cryptoData";
+import { ForexPair } from "@/lib/cryptoData";
 import { isPositiveChange } from "@/lib/utils";
 
 interface CurrencyPairCardProps {
-  pair: CryptoPair;
+  pair: ForexPair;
 }
 
 export function CurrencyPairCard({ pair }: CurrencyPairCardProps) {
   const isPositive = isPositiveChange(pair.change);
-  
+
   return (
     <Card className="bg-gray-50 p-4 shadow-sm">
       <p className="text-sm text-muted-foreground mb-1">{pair.symbol}</p>
