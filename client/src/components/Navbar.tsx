@@ -51,13 +51,8 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center">
-          <a href="#buy-now">
-            <Button variant="default" className="brand-button text-white rounded-full px-6">
-              Buy Now
-            </Button>
-          </a>
           <button
-            className="md:hidden ml-4 text-foreground focus:outline-none"
+            className="md:hidden text-foreground focus:outline-none"
             onClick={toggleMenu}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
