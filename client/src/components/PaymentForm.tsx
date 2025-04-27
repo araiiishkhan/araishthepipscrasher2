@@ -43,27 +43,33 @@ export function PaymentForm() {
       });
       return;
     }
+
+    // Basic TRON transaction hash validation
+    const tronHashRegex = /^[0-9a-fA-F]{64}$/;
+    if (!tronHashRegex.test(transactionHash)) {
+      toast({
+        title: "Invalid transaction hash",
+        description: "Please enter a valid TRON transaction hash.",
+        variant: "destructive",
+      });
+      return;
+    }
     
     setVerificationStatus("verifying");
     
-    // Simulate verification process
+    // Verify transaction - simulated for now
+    // In production, this should make an API call to verify:
+    // 1. Transaction exists on TRON network
+    // 2. Transaction amount matches required payment
+    // 3. Transaction recipient matches our wallet
+    // 4. Transaction is confirmed
     setTimeout(() => {
-      // In a real application, this would be an API call to verify the transaction
-      if (transactionHash.length < 10) {
-        setVerificationStatus("error");
-        toast({
-          title: "Verification failed",
-          description: "We couldn't verify your transaction. Please make sure you entered the correct transaction hash.",
-          variant: "destructive",
-        });
-      } else {
-        setVerificationStatus("success");
-        toast({
-          title: "Payment verified!",
-          description: "Your payment has been successfully verified. You can now download Araish Pips Crasher.",
-        });
-        // Redirect to email collection or download page
-      }
+      setVerificationStatus("error");
+      toast({
+        title: "Verification failed",
+        description: "Transaction not found or invalid. Please ensure you've sent the correct amount to the correct address.",
+        variant: "destructive",
+      });
     }, 2000);
   };
 

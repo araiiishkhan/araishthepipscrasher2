@@ -55,30 +55,36 @@ export function BuyNow() {
       });
       return;
     }
+
+    // Basic TRON transaction hash validation
+    const tronHashRegex = /^[0-9a-fA-F]{64}$/;
+    if (!tronHashRegex.test(transactionHash)) {
+      toast({
+        title: "Invalid transaction hash",
+        description: "Please enter a valid TRON transaction hash.",
+        variant: "destructive",
+      });
+      return;
+    }
     
-    // Simulate verification process
     toast({
       title: "Verifying...",
       description: "Please wait while we verify your transaction.",
     });
     
-    // Simulate verification process (accepts any transaction hash)
+    // Verify transaction - simulated for now
+    // In production, this should make an API call to verify:
+    // 1. Transaction exists on TRON network
+    // 2. Transaction amount matches required payment
+    // 3. Transaction recipient matches our wallet
+    // 4. Transaction is confirmed
     setTimeout(() => {
-      // Success with any transaction hash
-      setVerificationStatus("success");
+      setVerificationStatus("error");
       toast({
-        title: "Payment verified!",
-        description: "Your payment has been successfully verified. Your download will begin automatically.",
+        title: "Verification failed",
+        description: "Transaction not found or invalid. Please ensure you've sent the correct amount to the correct address.",
+        variant: "destructive",
       });
-      
-      // Start download automatically
-      setTimeout(() => {
-        window.location.href = "https://drive.google.com/file/d/1P6Z_De5HEabK3cBwPjidx7DVpCtS17w8/view?usp=drive_link";
-        toast({
-          title: "Download started",
-          description: "Your download should begin shortly in a new tab.",
-        });
-      }, 500);
     }, 1500);
   };
   
