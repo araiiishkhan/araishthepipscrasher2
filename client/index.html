@@ -10,7 +10,7 @@
   </head>
   <body>
     <div id="root"></div>
-    <div id="agent-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; cursor: move; min-width: 320px; min-height: 240px; background: transparent;">
+    <div id="agent-container" style="position: fixed; bottom: 40px; right: 40px; z-index: 9999; cursor: move; min-width: 350px; min-height: 260px; background: rgba(255,255,255,0.1); border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.2); backdrop-filter: blur(8px);">
       <script
         type="module"
         src="https://agent.d-id.com/v1/index.js"
@@ -62,8 +62,29 @@
       }
 
       function setTranslate(xPos, yPos, el) {
+        // Keep agent within viewport bounds
+        const rect = el.getBoundingClientRect();
+        const maxX = window.innerWidth - rect.width;
+        const maxY = window.innerHeight - rect.height;
+        
+        xPos = Math.min(Math.max(0, xPos), maxX);
+        yPos = Math.min(Math.max(0, yPos), maxY);
+        
         el.style.transform = `translate(${xPos}px, ${yPos}px)`;
       }
+
+      // Initialize position
+      currentX = window.innerWidth - agentContainer.offsetWidth - 40;
+      currentY = window.innerHeight - agentContainer.offsetHeight - 40;
+      setTranslate(currentX, currentY, agentContainer);
+
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        const rect = agentContainer.getBoundingClientRect();
+        currentX = Math.min(currentX, window.innerWidth - rect.width);
+        currentY = Math.min(currentY, window.innerHeight - rect.height);
+        setTranslate(currentX, currentY, agentContainer);
+      });
     </script>
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
     <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
