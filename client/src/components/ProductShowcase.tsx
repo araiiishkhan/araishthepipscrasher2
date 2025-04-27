@@ -12,7 +12,7 @@ export function ProductShowcase() {
             <img
               src={images.productBox}
               alt="Araish Product Box"
-              className="rounded-lg shadow-2xl w-3/4 mx-auto"
+              className="rounded-lg shadow-2xl w-3/4 mx-auto floating"
             />
           </div>
           <div>

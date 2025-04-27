@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { images } from "@/assets/images";
 import { ChevronRight, Play } from "lucide-react";
-import "./hero-animations.css"; // We'll create this file next
+import "./hero-animations.css"; 
 
 export function Hero() {
   return (
@@ -29,11 +29,11 @@ export function Hero() {
                 }}>Crasher</span>
               </div>
             </h1>
-            
+
             <p className="text-lg md:text-xl mb-8 text-muted-foreground">
               Specialized algorithmic trading solution for the GBP/JPY forex pair, engineered with advanced precision and risk management.
             </p>
-            
+
             <div className="flex flex-wrap gap-4 mb-8">
               <div className="flex items-center bg-gray-50 rounded-full px-4 py-2 text-sm">
                 <span className="bg-secondary h-2 w-2 rounded-full mr-2"></span>
@@ -48,7 +48,7 @@ export function Hero() {
                 Instant Download
               </div>
             </div>
-            
+
             <div className="flex gap-5 mb-8">
               <a href="#buy-now">
                 <Button className="brand-button text-white rounded-full px-8 py-6 text-base h-auto shadow-lg">
@@ -56,20 +56,20 @@ export function Hero() {
                 </Button>
               </a>
             </div>
-            
+
             <div className="text-2xl font-bold">
               <span className="text-primary" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.1)' }}>$1,199</span>
               <span className="text-sm font-normal text-muted-foreground ml-2">USD/USDT</span>
             </div>
           </div>
-          
+
           <div className="relative flex justify-center items-center">
             <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] relative floating-product">
               <div className="w-full h-full relative z-10 bg-white rounded-full p-2">
                 <img 
                   src={images.productBox} 
                   alt="Araish - The Pips Crasher" 
-                  className="w-full h-full object-contain rounded-xl" 
+                  className="w-full h-full object-contain rounded-xl floating" 
                   style={{ 
                     boxShadow: '0 10px 40px rgba(0, 0, 0, 0.15), 0 6px 16px rgba(0, 0, 0, 0.12)'
                   }}
@@ -79,12 +79,12 @@ export function Hero() {
             </div>
           </div>
         </div>
-        
+
         <div className="flex justify-center mt-12">
           <img
             src={images.presentation1}
             alt="Araish - Trading Results" 
-            className="rounded-xl shadow-xl w-full max-w-5xl h-auto"
+            className="rounded-xl shadow-xl w-full max-w-5xl h-auto floating"
           />
         </div>
       </div>
