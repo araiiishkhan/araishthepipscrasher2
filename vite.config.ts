@@ -8,9 +8,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   plugins: [react()],
+  root: 'client',
   server: {
     host: '0.0.0.0',
-    port: 3000,
+    port: 5000,
     hmr: {
       clientPort: 443,
       host: `${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co`,
