@@ -115,19 +115,4 @@
   }
 }
 
-/* AI Agent Styles */
-#did-agent-root {
-  position: fixed !important;
-  right: 20px !important;
-  bottom: 20px !important;
-  z-index: 1000 !important;
-  transition: transform 0.3s ease-in-out !important;
-}
 
-@media (max-width: 768px) {
-  #did-agent-root {
-    right: 10px !important;
-    bottom: 10px !important;
-    transform: scale(0.8) !important;
-  }
-}
