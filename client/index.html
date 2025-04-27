@@ -10,7 +10,7 @@
   </head>
   <body>
     <div id="root"></div>
-    <div id="agent-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; cursor: move; width: 320px; height: 400px; background: transparent;">
+    <div id="agent-container">
       <script
         async
         type="module"
@@ -19,13 +19,22 @@
         data-mode="fabio"
         data-client-key="Z29vZ2xlLW9hdXRoMnwxMTM5NjUxODUxODAwMTE3NTc1Mjc6ek81RlVMMjNuNnJTQjF1c0hvVVRV"
         data-agent-id="agt_8aJz7hRe"
-        data-layout="minimal"
+        data-layout="full"
         data-width="320"
-        data-height="400"
-        data-monitor="true"
-        data-position="right">
+        data-height="240"
+        data-monitor="true">
       </script>
     </div>
+    <style>
+      #agent-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999999;
+        background: transparent;
+        pointer-events: auto;
+      }
+    </style>
     <script type="module" src="/src/main.tsx"></script>
     <script>
       // Make the agent container draggable
