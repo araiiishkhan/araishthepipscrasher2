@@ -27,7 +27,7 @@ export interface PerformanceMetrics {
   weeklyConsistency: string;
 }
 
-export const initialCryptoPairs: CryptoPair[] = [
+export const initialForexPairs: ForexPair[] = [
   { id: 1, symbol: "GBP/JPY", price: "181.971", change: "+0.12%", direction: "up", lastUpdated: new Date().toISOString() },
   { id: 2, symbol: "EUR/USD", price: "1.1305", change: "-0.08%", direction: "down", lastUpdated: new Date().toISOString() },
   { id: 3, symbol: "USD/JPY", price: "142.958", change: "+0.35%", direction: "up", lastUpdated: new Date().toISOString() },

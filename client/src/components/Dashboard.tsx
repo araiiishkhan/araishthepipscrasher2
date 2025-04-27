@@ -27,7 +27,7 @@ export function Dashboard() {
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-3">
-            Revolutionary <span className="text-primary">Trading Dashboard</span>
+            Forex <span className="text-primary">Trading Dashboard</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Experience a data-rich interface that gives you full control over your trading strategy

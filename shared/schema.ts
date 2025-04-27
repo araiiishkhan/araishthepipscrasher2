@@ -8,7 +8,7 @@ export const users = pgTable("users", {
   password: text("password").notNull(),
 });
 
-export const cryptoPairs = pgTable("crypto_pairs", {
+export const forexPairs = pgTable("forex_pairs", {
   id: serial("id").primaryKey(),
   symbol: text("symbol").notNull().unique(),
   price: text("price").notNull(),
