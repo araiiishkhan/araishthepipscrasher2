@@ -32,13 +32,13 @@ export function Dashboard() {
             Experience a data-rich interface that gives you full control over your trading strategy
           </p>
         </div>
-        
+
         <Card className="bg-background mb-10 p-4">
           <CardContent className="p-0">
             <TradingChart />
           </CardContent>
         </Card>
-        
+
         <div className="grid md:grid-cols-2 gap-8">
           <Card className="bg-background">
             <CardHeader>
@@ -46,7 +46,7 @@ export function Dashboard() {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 gap-4 mb-4">
-                {pairs.slice(0, 2).map((pair: CryptoPair) => (
+                {pairs.slice(0, 2).map((pair: ForexPair) => (
                   <CurrencyPairCard key={pair.id} pair={pair} />
                 ))}
               </div>
@@ -67,7 +67,7 @@ export function Dashboard() {
               </Card>
             </CardContent>
           </Card>
-          
+
           <Card className="bg-background">
             <CardHeader>
               <CardTitle>Trading Performance</CardTitle>
@@ -86,14 +86,10 @@ export function Dashboard() {
               <Card className="bg-gray-50 p-4 shadow-sm">
                 <p className="font-bold text-primary mb-2 text-center">Monthly Performance</p>
                 <div className="w-full flex items-end justify-between h-20 px-2">
-                  {monthlyChartData.map((item, index) => (
-                    <div
-                      key={index}
-                      className="bg-[#0ECB81] w-6 rounded-t-sm"
-                      style={{ height: `${item.value}%` }}
-                    ></div>
-                  ))}
-                </div>
+                  {/* Assuming monthlyChartData is still available */}
+                  {/*  This part needs to be fixed as monthlyChartData is not defined  */}
+                  {/*  The original code is missing a definition for monthlyChartData */}
+                  </div>
               </Card>
             </CardContent>
           </Card>
