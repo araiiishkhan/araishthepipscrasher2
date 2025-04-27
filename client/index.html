@@ -22,8 +22,7 @@
       data-layout="default"
       data-width="320"
       data-height="400"
-    >
-    </script>
+    ></script>
     <style>
       #did-agent-container {
         position: fixed;
@@ -35,6 +34,11 @@
         background: transparent;
         pointer-events: auto;
         transition: transform 0.3s ease;
+        opacity: 0;
+      }
+      
+      #did-agent-container.loaded {
+        opacity: 1;
       }
       
       @media (max-width: 768px) {
@@ -48,19 +52,23 @@
     </style>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      function initializeAgent() {
+      document.addEventListener('DOMContentLoaded', () => {
         const agentContainer = document.getElementById('did-agent-container');
-        if (!agentContainer) {
-          console.log('Waiting for agent container...');
-          setTimeout(initializeAgent, 1000);
-          return;
-        }
+        if (!agentContainer) return;
 
-        let isDragging = false;
-        let currentX = 0;
-        let currentY = 0;
-        let initialX;
-        let initialY;
+        window.addEventListener('message', (event) => {
+          if (event.data === 'did-agent-ready') {
+            agentContainer.classList.add('loaded');
+            initializeAgent();
+          }
+        });
+
+        function initializeAgent() {
+          let isDragging = false;
+          let currentX = 0;
+          let currentY = 0;
+          let initialX;
+          let initialY;
 
           agentContainer.addEventListener('mousedown', dragStart);
           document.addEventListener('mousemove', drag);
@@ -112,15 +120,21 @@
             currentY = Math.min(currentY, window.innerHeight - rect.height);
             setTranslate(currentX, currentY, agentContainer);
           });
-        }, 2000); // Wait for 2 seconds to ensure the agent is loaded
-      }
 
-      // Start initialization when DOM is ready
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initializeAgent);
-      } else {
-        initializeAgent();
-      }
+          // Initialize position
+          currentX = window.innerWidth - agentContainer.offsetWidth - 40;
+          currentY = window.innerHeight - agentContainer.offsetHeight - 40;
+          setTranslate(currentX, currentY, agentContainer);
+
+          // Handle window resize
+          window.addEventListener('resize', () => {
+            const rect = agentContainer.getBoundingClientRect();
+            currentX = Math.min(currentX, window.innerWidth - rect.width);
+            currentY = Math.min(currentY, window.innerHeight - rect.height);
+            setTranslate(currentX, currentY, agentContainer);
+          });
+        }
+      });
     </script>
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
     <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
