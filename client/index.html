@@ -7,25 +7,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <meta name="description" content="Advanced AI-powered Forex trading system designed for maximum profit. Step into the future of trading with Araish - The Pips Crasher.">
-  <script
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="did-agent-container"></div>
+    <script
       async
-      defer
+      type="module"
       src="https://agent.d-id.com/v1/index.js"
       data-name="did-agent"
+      data-container="#did-agent-container"
       data-mode="frame"
       data-client-key="Z29vZ2xlLW9hdXRoMnwxMTM5NjUxODUxODAwMTE3NTc1Mjc6ek81RlVMMjNuNnJTQjF1c0hvVVRV"
       data-agent-id="agt_8aJz7hRe"
       data-layout="default"
       data-width="320"
-      data-height="400"
-      data-position="right"
-      data-monitor="true">
+      data-height="400">
     </script>
-  </head>
-  <body>
-    <div id="root"></div>
     <style>
-      #agent-container {
+      #did-agent-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 320px;
+        height: 400px;
+        z-index: 999999;
         position: fixed;
         bottom: 20px;
         right: 20px;
