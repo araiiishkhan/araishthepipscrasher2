@@ -10,7 +10,7 @@ export function Hero() {
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
           <div className="flex flex-col items-start text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8" style={{ lineHeight: "1.1", fontFamily: "'Poppins', sans-serif", letterSpacing: "-0.5px" }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8" style={{ lineHeight: "1.1", fontFamily: "'Inter', sans-serif", letterSpacing: "-0.5px" }}>
               <div>
                 <span style={{ 
                   color: "#4DB5E8", 
