@@ -10,31 +10,38 @@
   </head>
   <body>
     <div id="root"></div>
-    <div id="did-container"></div>
+    <div id="did-container" class="did-agent-container"></div>
     <script
       async
       src="https://agent.d-id.com/v1/index.js"
       data-name="did-agent"
-      data-container="#did-container"
+      data-mode="avatar"
       data-client-key="Z29vZ2xlLW9hdXRoMnwxMTM5NjUxODUxODAwMTE3NTc1Mjc6ek81RlVMMjNuNnJTQjF1c0hvVVRV"
       data-agent-id="agt_8aJz7hRe"
       data-width="320"
       data-height="400"
+      data-position="bottom-right"
+      data-overlay="true"
     ></script>
     <style>
-      #did-container {
+      .did-agent-container {
         position: fixed !important;
         bottom: 20px !important;
         right: 20px !important;
         width: 320px !important;
         height: 400px !important;
         z-index: 2147483647 !important;
-        background: transparent !important;
+        pointer-events: auto !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
       }
-    </style>
-    <style>
       #did-agent {
-        z-index: 999999 !important;
+        z-index: 2147483647 !important;
+        pointer-events: auto !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
       }
     </style>
     <script type="module" src="/src/main.tsx"></script>
